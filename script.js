@@ -10,6 +10,8 @@ let minutes = 0;
 let seconds = 0;
 let miliseconds = 0;
 
+let playing = false;
+
 setInterval(() => {
   date = new Date()
 
@@ -17,6 +19,14 @@ setInterval(() => {
   minutes = date.getMinutes();
   seconds = date.getSeconds();
   miliseconds = date.getMilliseconds();
+
+  if (minutes === 0 && seconds === 0 && playing === false) {
+    playing = true;
+    new Audio("sounds/ring.mp3").play();
+    setTimeout(() => {
+      playing = false;
+    }, 5000);
+  }
 
   hoursDisplay.innerText = String(hours);
   minutesDisplay.innerText = String(minutes);

@@ -57,8 +57,10 @@ body {
 }
 
 span {
+  visibility: hidden;
   text-align: center;
   min-width: 50px;
+  animation: fadeIn 1s ease forwards;
 }
 
 #miliseconds {
@@ -71,6 +73,13 @@ p {
   text-align: center;
   font-size: 0.9rem;
   margin-top: 1rem;
+}
+
+/* ANIMATIONS */
+@keyframes fadeIn {
+  0% {visibility: hidden; opacity: 0; transform: translateY(25px);}
+  25% {opacity: 0;}
+  100% {visibility: visible; transform: translateY(0);}
 }
 
 /* REPONSIVE */
